@@ -1,0 +1,9 @@
+-Environment Variables are not included in version control.
+Make sure to updated the copies if you make environment changes!
+
+-If you encounter a mysql error when executing "npm run dev", do the ff:
+1. Open CMD
+2. Execute "netstat -ano"
+3. Find the task with the PORT that's running our Cloud SQL Auth Proxy (3307). Take note of the PID.
+4. Execute "taskkill /F /PID <PID-HERE>"
+

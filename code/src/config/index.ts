@@ -1,14 +1,14 @@
 import dotenv from 'dotenv';
-import SecretManager from './SecretManager';
 
 dotenv.config({
-    path: '../../.env',
+    path: '../.env',
 });
 
-const secretManagerService = new SecretManager();
-
-export const buildConfig = async () => ({
-    CLOUD_SQL_PUBLIC_IP_ADDRESS: await secretManagerService.getSecretValue(
-        process.env.CLOUD_SQL_PUBLIC_IP_ADDRESS_RESOURCE_ID as string
-    ),
+const buildConfig = () => ({
+    dbConnectionName: process.env.DATABASE_NAME,
+    dbIpAddress: process.env.DATABASE_IP_ADDRESS,
+    dbUser: process.env.DATABASE_USER,
+    dbPassword: process.env.DATABASE_PASSWORD,
 });
+
+export default buildConfig();

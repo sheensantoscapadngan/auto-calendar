@@ -6,7 +6,8 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "(cd src && ts-node server.ts)",
-        "dev": "(cd src && ts-node-dev server.ts)",
+        "connect-db": "./cloud_sql_proxy -instances=auto-calendar-323608:asia-southeast1:auto-calendar=tcp:3307",
+        "dev": "concurrently --kill-others \"(npm run connect-db)\" \"(cd src && ts-node-dev server.ts)\"",
         "gcp-build": "tsc -p ."
     },
     "keywords": [],
@@ -15,16 +16,19 @@
     "dependencies": {
         "@google-cloud/secret-manager": "^3.10.0",
         "body-parser": "^1.19.0",
+        "concurrently": "^6.2.1",
         "config": "^3.3.6",
         "dotenv": "^10.0.0",
         "express": "^4.17.1",
         "express-validator": "^6.12.1",
+        "mysql": "^2.18.1",
         "nodemon": "^2.0.12",
         "ts-node": "^10.2.1"
     },
     "devDependencies": {
         "@types/deasync": "^0.1.1",
         "@types/express": "^4.17.13",
+        "@types/mysql": "^2.15.19",
         "@types/node": "^16.7.1",
         "ts-node-dev": "^1.1.8",
         "typescript": "^4.3.5"
