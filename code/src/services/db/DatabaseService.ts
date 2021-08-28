@@ -11,8 +11,8 @@ export default class DatabaseService {
             user: config.dbUser,
             password: config.dbPassword,
             database: config.dbConnectionName,
-            host: '127.0.0.1',
-            port: 3307,
+            host: config.dbIpAddress,
+            port: config.dbPort,
         });
         this.promisfiedQuery = promisify(this.dbConnection.query).bind(
             this.dbConnection

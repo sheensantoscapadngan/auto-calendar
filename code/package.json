@@ -5,9 +5,9 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "(cd src && ts-node server.ts)",
+        "start": "cross-env NODE_ENV=production ts-node ./src/server.ts",
         "connect-db": "./cloud_sql_proxy -instances=auto-calendar-323608:asia-southeast1:auto-calendar=tcp:3307",
-        "dev": "concurrently --kill-others \"(npm run connect-db)\" \"(cd src && ts-node-dev server.ts)\"",
+        "dev": "cross-env NODE_ENV=development ts-node-dev ./src/server.ts",
         "gcp-build": "tsc -p ."
     },
     "keywords": [],
@@ -30,6 +30,7 @@
         "@types/express": "^4.17.13",
         "@types/mysql": "^2.15.19",
         "@types/node": "^16.7.1",
+        "cross-env": "^7.0.3",
         "ts-node-dev": "^1.1.8",
         "typescript": "^4.3.5"
     }
