@@ -3,6 +3,8 @@ import { promisify } from 'util';
 
 import config from '../../config';
 
+console.log('CONFIG IS', config);
+
 export default class DatabaseService {
     private dbConnection;
     private promisfiedQuery: any;
