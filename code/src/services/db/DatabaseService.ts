@@ -13,7 +13,7 @@ export default class DatabaseService {
         const additionalConfig =
             process.env.NODE_ENV === 'production'
                 ? {
-                      socketPath: `${dbSocketPath}/${config.dbConnectionName}}`,
+                      socketPath: `${dbSocketPath}/${config.dbConnectionName}`,
                   }
                 : {
                       host: config.dbIpAddress,
