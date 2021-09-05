@@ -10,3 +10,7 @@ resources:
     cpu: 1
     memory_gb: 1
     disk_size_gb: 10
+
+env_variables:
+    NODE_ENV: 'production'
+    DEPLOYMENT_URL: 'https://auto-calendar-323608.as.r.appspot.com/api'

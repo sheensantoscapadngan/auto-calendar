@@ -11,4 +11,9 @@ userRouter.get('/create', async (req, res) => {
     res.send(resp);
 });
 
+userRouter.get('/test', async (req, res) => {
+    // FOR TESTING PURPOSES ONLY
+    res.send('U ARE A NooB!');
+});
+
 export default userRouter;
